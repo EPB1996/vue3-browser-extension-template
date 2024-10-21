@@ -154,4 +154,17 @@ And then pack files under `dist/chrome` or `dist/firefox`, you can upload to app
 ## Contributors
 
 <!-- readme: collaborators,contributors -start -->
+<table>
+	<tbody>
+		<tr>
+            <td align="center">
+                <a href="https://github.com/EPB1996">
+                    <img src="https://avatars.githubusercontent.com/u/22174765?v=4" width="100;" alt="EPB1996"/>
+                    <br />
+                    <sub><b>Etienne </b></sub>
+                </a>
+            </td>
+		</tr>
+	<tbody>
+</table>
 <!-- readme: collaborators,contributors -end -->
