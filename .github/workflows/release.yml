@@ -39,13 +39,17 @@ jobs:
       - run: pnpm install --no-frozen-lockfile
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+      
+      - name: Get Package Name
+        id: get-name
+        run: echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_ENV
 
       - name: Get Package Version
         id: get-version
         run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
       - run: pnpm build
-      - run: zip -r ${{ env.version }}.zip dist
+      - run: zip -r ${{ env.name }}.zip dist
 
       - name: GH Release
         uses: softprops/action-gh-release@v0.1.15
@@ -53,4 +57,4 @@ jobs:
           tag_name: ${{ env.version }}
           name: ${{ env.version }}
           draft: true
-          files: ${{ env.version }}.zip
+          files: ${{ env.name }}.zip
