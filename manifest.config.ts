@@ -28,9 +28,9 @@ export default {
   },
   content_scripts: [
     {
-      all_frames: true,
+      all_frames: false,
       js: ['src/content-script/index.ts'],
-      matches: ['*://*/*'],
+      matches: ['https://www.whoz.com/workspace/*/personal/your/profile'],
       run_at: 'document_end',
     },
   ],

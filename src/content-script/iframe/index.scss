@@ -1,6 +1,19 @@
 // @config "./tailwind.config.cjs"; // To isolate the styles of the source website and chrome plugin
 @import '../../assets/base';
 
-.body {
+html {
   @apply w-full h-full;
+  height: 100%;
+  width: 100%;
 }
+body {
+  @apply w-full h-full;
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+}
+

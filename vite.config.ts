@@ -36,7 +36,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    vueDevTools(),
+    /* vueDevTools(), */
     Pages({
       dirs: [
         {
