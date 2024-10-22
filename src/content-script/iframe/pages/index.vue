@@ -58,18 +58,55 @@ watch(urlInformation, (newValue) => {
 
 
 <template>
-  <div v-if="showContentScript.active">
-    <div v-if="whozUserId" class="wrap-text">
-      <!-- <p>URL Information: {{ urlInformation }}</p> -->
+  <div v-if="showContentScript.active" class="content-script-container">
+    <div class="expandable">
+      <div v-if="!whozUserId" class="wrap-text">
+        <p>
+          Make sure you are on your profile page in the WHOZ application.
+        </p>
+      </div>
+      <div v-else class="wrap-text">
+        <!-- <p>URL Information: {{ urlInformation }}</p> -->
 
-      <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>
-      <p>The idea will be to call another application with this id such that it can be processed.</p>
-      <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
+        <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>
+        <p>The idea will be to call another application with this id such that it can be processed.</p>
+        <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
+      </div>
+    </div>
+    <div class="floating-icon">
+      🔍
+      <p class="ps-5">
+        CV Maker
+      </p>
     </div>
   </div>
+
 </template>
 
 <style scoped>
+.expandable {
+  box-sizing: border-box;
+  border-radius: 16px;
+}
+
+.floating-icon {
+  padding: 5px;
+  transition: opacity 0.5s;
+  height: 35px;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+}
+
+.content-script-container {
+  position: fixed;
+  bottom: 0;
+  padding: 5px;
+  color: #000;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
 .wrap-text {
   display: flex;
   align-items: center;
@@ -77,8 +114,7 @@ watch(urlInformation, (newValue) => {
   flex-direction: column;
   text-align: center;
   padding: 5px;
-  width: 100%;
-  height: 100%;
+
   white-space: initial;
   word-wrap: break-word;
 }

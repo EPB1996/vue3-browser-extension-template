@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app.store'
-const version = __VERSION__
 const store = useAppStore()
 const whozUserId = computed(() => store.whozUserId)
 const cvGeneratorUrl = computed(() => store.cvGeneratorUrl)
@@ -12,7 +11,12 @@ onBeforeMount(() => {
 
 <template>
   <div class="text-center m-4 flex flex-col gap-y-2">
-    <div v-if="whozUserId" class="wrap-text">
+    <div v-if="!whozUserId" class="wrap-text">
+      <p>
+        Make sure you are on your profile page in the WHOZ application.
+      </p>
+    </div>
+    <div v-else class="wrap-text">
       <!-- <p>URL Information: {{ urlInformation }}</p> -->
 
       <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>

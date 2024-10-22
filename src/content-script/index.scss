@@ -1,12 +1,23 @@
 .crx-iframe {
-  position: fixed;
-  bottom: 10px;
-  left:10px;
-  z-index: 1000;
   border: none;
-  border-radius: 8px;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    0 -1px 0px rgba(0, 0, 0, 0.02);
-  background-color: #fff;
+  border-radius: 10px;
+  z-index: 1000;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0.8;
+  width: 150px;
+  height: 45px;
+  background: rgba(233, 200, 200, 0.8);
+}
+
+.grow {
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
+}
+
+.grow:hover {
+  opacity: 1;
+  width: auto;
+  height: auto;
 }
