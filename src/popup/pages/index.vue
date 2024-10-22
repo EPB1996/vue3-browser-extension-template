@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app.store'
-
 const version = __VERSION__
+const store = useAppStore()
+const whozUserId = computed(() => store.whozUserId)
+const cvGeneratorUrl = computed(() => store.cvGeneratorUrl)
 
-// const store = useAppStore()
 </script>
 
 <template>
@@ -11,7 +12,13 @@ const version = __VERSION__
     <h1 class="text-3xl font-bold underline pb-6">
       Devoteam CV Generator
     </h1>
+    <div v-if="whozUserId" class="wrap-text">
+      <!-- <p>URL Information: {{ urlInformation }}</p> -->
 
+      <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>
+      <p>The idea will be to call another application with this id such that it can be processed.</p>
+      <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
+    </div>
     <p>Vesion: {{ version }}</p>
     <RouterLink class="underline" to="/common/about">
       About

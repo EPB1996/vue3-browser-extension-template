@@ -30,7 +30,7 @@ export default {
     {
       all_frames: false,
       js: ['src/content-script/index.ts'],
-      matches: ['https://www.whoz.com/workspace/*/personal/your/profile'],
+      matches: ['https://www.whoz.com/*'],
       run_at: 'document_end',
     },
   ],

@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router/auto'
+import { createPinia } from 'pinia'
 import App from './app.vue'
 import routes from '~pages'
 import '../../assets/base.scss'
@@ -15,7 +16,7 @@ const router = createRouter({
   routes,
 })
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(createPinia()).mount('#app')
 
 // console.log(router.getRoutes())
 

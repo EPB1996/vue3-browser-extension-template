@@ -2,24 +2,24 @@ import { useStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 
 export const useAppStore = defineStore('app', () => {
-  const count = useStorage('count', 0)
-  const name = useStorage('name', 'John Doe')
+  const whozUserId = useStorage('whozUserId', '')
+  const cvGeneratorUrl = computed(() => {
+    if (!whozUserId.value) {
+      return ''
+    }
+    return `https://www.example.com/cv-generator/${whozUserId.value}`
+  })
 
   // You should probably use chrome.storage API instead of localStorage since localStorage history can be cleared by the user.
   // See https://developer.chrome.com/docs/extensions/reference/api/storage
 
-  const increment = () => {
-    count.value++
-  }
-
-  const decrement = () => {
-    count.value--
+  const setWhozUserId = (value: string) => {
+    whozUserId.value = value
   }
 
   return {
-    count,
-    name,
-    increment,
-    decrement,
+    whozUserId,
+    setWhozUserId,
+    cvGeneratorUrl
   }
 })

@@ -1,21 +1,16 @@
 <script setup lang="ts">
+
+import { useAppStore } from '@/stores/app.store'
+
+const store = useAppStore()
+
 const urlInformation = ref<URL | null>(null)
-const id = ref<string | null>(null);
-const cvGeneratorUrl = computed(() => {
-  if (!id.value) {
-    return '';
-  }
-  return `https://www.example.com/cv-generator/${id.value}`;
-})
+const whozUserId = computed(() => store.whozUserId)
+const cvGeneratorUrl = computed(() => store.cvGeneratorUrl)
 
 
 onMounted(() => {
-  chrome.tabs.onActivated.addListener((activeInfo) => {
-    chrome.tabs.get(activeInfo.tabId, async (tab) => {
-      urlInformation.value = new URL(tab.url!.toString())
-    })
-  })
-
+  // when page reload 
   chrome.tabs.query(
     {
       active: true,
@@ -23,22 +18,44 @@ onMounted(() => {
     },
     (tabs) => {
       urlInformation.value = new URL(tabs[0].url!.toString())
-      const match = urlInformation.value.pathname.match(/^\/workspace\/([a-f0-9]{24})\/personal\/your\/profile$/);
-      if (match) {
-        id.value = match[1];
-      }
     }
   )
+
+  // when switching between tabs to reactivate in case of reanimation needed
+  chrome.tabs.onActivated.addListener((activeInfo) => {
+    chrome.tabs.get(activeInfo.tabId, (tab) => {
+      urlInformation.value = new URL(tab.url!.toString())
+    })
+  })
+
+  // when navigating to the profile page inside the WHOZ application
+  chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.url) {
+      urlInformation.value = new URL(changeInfo.url);
+    }
+  });
 })
 
 
+watch(urlInformation, (newValue) => {
+  if (!newValue) {
+    return;
+  }
+  const match = newValue.pathname.match(/^\/workspace\/([a-f0-9]{24})\/personal\/your\/profile$/);
+  if (match) {
+    store.setWhozUserId(match[1]);
+  } else {
+    store.setWhozUserId("");
+  }
+})
 </script>
 
+
 <template>
-  <div class="wrap-text">
+  <div v-if="whozUserId" class="wrap-text">
     <!-- <p>URL Information: {{ urlInformation }}</p> -->
 
-    <p>This is the extracted ID: <strong>{{ id }}</strong></p>
+    <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>
     <p>The idea will be to call another application with this id such that it can be processed.</p>
     <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
   </div>
