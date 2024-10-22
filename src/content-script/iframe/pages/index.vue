@@ -8,6 +8,12 @@ const urlInformation = ref<URL | null>(null)
 const whozUserId = computed(() => store.whozUserId)
 const cvGeneratorUrl = computed(() => store.cvGeneratorUrl)
 
+const showContentScript = computed(() => store.showContentScript)
+
+onBeforeMount(() => {
+  store.reloadSavedOptions()
+})
+
 
 onMounted(() => {
   // when page reload 
@@ -52,12 +58,14 @@ watch(urlInformation, (newValue) => {
 
 
 <template>
-  <div v-if="whozUserId" class="wrap-text">
-    <!-- <p>URL Information: {{ urlInformation }}</p> -->
+  <div v-if="showContentScript.active">
+    <div v-if="whozUserId" class="wrap-text">
+      <!-- <p>URL Information: {{ urlInformation }}</p> -->
 
-    <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>
-    <p>The idea will be to call another application with this id such that it can be processed.</p>
-    <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
+      <p>This is the extracted ID: <strong>{{ whozUserId }}</strong></p>
+      <p>The idea will be to call another application with this id such that it can be processed.</p>
+      <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
+    </div>
   </div>
 </template>
 

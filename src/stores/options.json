@@ -1,0 +1,8 @@
+{
+  "showContentScript": {
+    "key": "showMappingAssistant",
+    "title": "Mapping Assistant",
+    "description": "Show the floating Mapping Assistant for google files.",
+    "active": true
+  }
+}

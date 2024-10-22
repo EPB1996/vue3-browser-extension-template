@@ -5,13 +5,13 @@ const store = useAppStore()
 const whozUserId = computed(() => store.whozUserId)
 const cvGeneratorUrl = computed(() => store.cvGeneratorUrl)
 
+onBeforeMount(() => {
+  store.reloadSavedOptions()
+})
 </script>
 
 <template>
   <div class="text-center m-4 flex flex-col gap-y-2">
-    <h1 class="text-3xl font-bold underline pb-6">
-      Devoteam CV Generator
-    </h1>
     <div v-if="whozUserId" class="wrap-text">
       <!-- <p>URL Information: {{ urlInformation }}</p> -->
 
@@ -19,10 +19,6 @@ const cvGeneratorUrl = computed(() => store.cvGeneratorUrl)
       <p>The idea will be to call another application with this id such that it can be processed.</p>
       <a class="btn btn-primary" :href="cvGeneratorUrl" target="_blank">CV Generator</a>
     </div>
-    <p>Vesion: {{ version }}</p>
-    <RouterLink class="underline" to="/common/about">
-      About
-    </RouterLink>
   </div>
 </template>
 

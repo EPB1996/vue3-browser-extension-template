@@ -1,14 +1,23 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useAppStore } from '@/stores/app.store'
+
+const store = useAppStore()
+const showContentScript = computed(() => store.showContentScript)
+
+onBeforeMount(() => {
+  store.reloadSavedOptions()
+})
+
+</script>
 
 <template>
-  <div class="text-center m-4">
-    <h1 class="text-3xl font-bold underline pb-6">
-      Hello world from Options!
-    </h1>
-
-    <RouterLink to="/common/about">
-      About
-    </RouterLink>
+  <div class="m-4 flex flex-col font-roboto divide-y">
+    <div class="space-y-2">
+      <p class="text-lg font-bold">
+        Options
+      </p>
+      <OptionComponent :option="showContentScript" />
+    </div>
   </div>
 </template>
 
@@ -19,9 +28,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }

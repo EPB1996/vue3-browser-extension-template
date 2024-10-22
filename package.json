@@ -1,6 +1,6 @@
 {
-  "name": "vite-vue3-chrome-extension-v3",
-  "displayName": "Vite Vue 3 Chrome Extension",
+  "name": "Devoteam CV Generator",
+  "displayName": "Devoteam CV Generator",
   "type": "module",
   "version": "0.0.1",
   "private": true,
