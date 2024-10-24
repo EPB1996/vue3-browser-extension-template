@@ -1,8 +1,8 @@
 {
   "showContentScript": {
-    "key": "showMappingAssistant",
-    "title": "Mapping Assistant",
-    "description": "Show the floating Mapping Assistant for google files.",
+    "key": "showContentScript",
+    "title": "Content Script content",
+    "description": "Show the floating Content Script Button",
     "active": true
   }
 }

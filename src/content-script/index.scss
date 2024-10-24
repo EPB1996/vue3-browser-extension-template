@@ -1,14 +1,61 @@
+// Define variables for common properties
+$border-radius: 10px;
+$menu-size: 60px;
+$menu-padding: 20px;
+$iframe-width: 300px;
+$iframe-height: 500px;
+$animation-duration: 0.25s;
+$box-shadow: 0px 0px 12px 3px rgba(0, 0, 0, 0.7);
+$menu-background: rgba(214, 36, 36, 1);
+$menu-hover-background: rgba(255, 69, 58, 1);
+$iframe-background: rgba(240, 238, 238, 1);
+
 .crx-iframe {
   border: none;
-  border-radius: 10px;
+  z-index: 999;
+  position: fixed;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  border-radius: $border-radius;
+  bottom: calc(#{$menu-padding} + #{$menu-size} / 2);
+  right: calc(#{$menu-padding} + #{$menu-size} / 2);
+  box-shadow: $box-shadow;
+  background: $iframe-background;
+
+  transition: all $animation-duration ease-in-out;
+}
+
+.show {
+  opacity: 1;
+  width: $iframe-width;
+  height: $iframe-height;
+}
+
+.menu {
+  border: 3px solid white;
+  border-radius: 50%;
   z-index: 1000;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  opacity: 0.8;
-  width: 150px;
-  height: 45px;
-  background: rgba(233, 200, 200, 0.8);
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  bottom: $menu-padding;
+  right: $menu-padding;
+  width: $menu-size;
+  height: $menu-size;
+  box-shadow: $box-shadow;
+
+  transition:
+    border $animation-duration,
+    border-radius $animation-duration,
+    background-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.menu:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .grow {

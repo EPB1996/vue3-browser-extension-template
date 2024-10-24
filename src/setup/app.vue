@@ -24,10 +24,10 @@ function updateTitle() {
 }
 
 const InstallComponent = defineAsyncComponent(
-  () => import('@/components/install.vue')
+  () => import('@/components/Install.vue')
 )
 const UpdateComponent = defineAsyncComponent(
-  () => import('@/components/update.vue')
+  () => import('@/components/Update.vue')
 )
 
 const ComponentToRender = computed(() => {

@@ -30,7 +30,7 @@ export default {
     {
       all_frames: false,
       js: ['src/content-script/index.ts'],
-      matches: ['https://www.whoz.com/*'],
+      matches: ['<all_urls>'],
       run_at: 'document_end',
     },
   ],
@@ -52,11 +52,15 @@ export default {
       matches: ['*://*/*'],
       resources: ['src/content-script/iframe/index.html'],
     },
+    {
+      resources: ['src/assets/images/*'],
+      matches: ['*://*/*'],
+    },
   ],
   icons: {
-    16: 'src/assets/logo.png',
-    24: 'src/assets/logo.png',
-    32: 'src/assets/logo.png',
-    128: 'src/assets/logo.png',
+    16: 'src/assets/images/logo.jpg',
+    24: 'src/assets/images/logo.jpg',
+    32: 'src/assets/images/logo.jpg',
+    128: 'src/assets/images/logo.jpg',
   },
 } as ManifestV3Export

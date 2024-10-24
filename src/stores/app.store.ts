@@ -3,21 +3,14 @@ import { defineStore } from 'pinia'
 import options from './options.json'
 
 export const useAppStore = defineStore('app', () => {
-  const whozUserId = useStorage('whozUserId', '')
+  const currentURL = useStorage('whozUserId', '')
   const showContentScript = ref(options.showContentScript)
-
-  const cvGeneratorUrl = computed(() => {
-    if (!whozUserId.value) {
-      return ''
-    }
-    return `https://www.example.com/cv-generator/${whozUserId.value}`
-  })
 
   // You should probably use chrome.storage API instead of localStorage since localStorage history can be cleared by the user.
   // See https://developer.chrome.com/docs/extensions/reference/api/storage
 
-  const setWhozUserId = (value: string) => {
-    whozUserId.value = value
+  const setCurrentURL = (value: string) => {
+    currentURL.value = value
   }
 
   chrome.storage.onChanged.addListener((changes, areaName) => {
@@ -44,17 +37,16 @@ export const useAppStore = defineStore('app', () => {
     option.active = !option.active
     switch (option.title) {
       case options.showContentScript.title:
-        chrome.storage.sync.set({ showMappingAssistant: option })
+        chrome.storage.sync.set({ showContentScript: option })
         break
     }
   }
 
   return {
-    whozUserId,
-    setWhozUserId,
+    currentURL,
+    setCurrentURL,
     showContentScript,
     reloadSavedOptions,
     toogleOptions,
-    cvGeneratorUrl,
   }
 })

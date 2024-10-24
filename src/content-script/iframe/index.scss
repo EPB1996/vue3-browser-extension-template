@@ -3,17 +3,12 @@
 
 html {
   @apply w-full h-full;
-  height: 100%;
-  width: 100%;
+  overflow: hidden;
 }
 body {
   @apply w-full h-full;
-  height: 100%;
-  width: 100%;
 }
 
 #app {
-  height: 100%;
-  width: 100%;
+  @apply w-full h-full;
 }
-

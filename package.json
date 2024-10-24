@@ -1,6 +1,6 @@
 {
-  "name": "Devoteam CV Generator",
-  "displayName": "Devoteam CV Generator",
+  "name": "Template",
+  "displayName": "Template",
   "type": "module",
   "version": "0.0.1",
   "private": true,
