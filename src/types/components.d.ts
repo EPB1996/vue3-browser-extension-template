@@ -14,6 +14,6 @@ declare module 'vue' {
     OptionComponent: typeof import('./../components/OptionComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Update: typeof import('./../components/Update.vue')['default']
+    Update: typeof import('./../components/update.vue')['default']
   }
 }
