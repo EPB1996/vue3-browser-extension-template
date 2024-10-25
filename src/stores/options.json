@@ -1,8 +1,88 @@
 {
-  "showContentScript": {
-    "key": "showContentScript",
-    "title": "Content Script content",
-    "description": "Show the floating Content Script Button",
-    "active": true
-  }
+    "content_script_settings": {
+        "title": "Content Script Settings",
+        "options": {
+            "contentScriptVisability": {
+                "key": "contentScriptVisability",
+                "title": "Content Script Button",
+                "description": "Show the floating Content Script Button in the right bottom corner of the page.",
+                "type": "switch",
+                "active": true
+            },
+            "contentScriptXPosition": {
+                "key": "contentScriptXPosition",
+                "title": "Content Script Button Position",
+                "description": "Set the position of the Content Script Button for the X-axis.",
+                "type": "selection-btn",
+                "options": [
+                    {
+                        "key": "left",
+                        "label": "Left",
+                        "value": "left"
+                    },
+                    {
+                        "key": "right",
+                        "label": "Right",
+                        "value": "right"
+                    }
+                ],
+                "selectedOption": "right"
+            },
+            "contentScriptYPosition": {
+                "key": "contentScriptYPosition",
+                "title": "Content Script Button Position",
+                "description": "Set the position of the Content Script Button for the Y-axis.",
+                "type": "selection-btn",
+                "options": [
+                    {
+                        "key": "top",
+                        "label": "Top",
+                        "value": "top"
+                    },
+                    {
+                        "key": "bottom",
+                        "label": "Bottom",
+                        "value": "bottom"
+                    }
+                ],
+                "selectedOption": "bottom"
+            }
+        }
+    },
+    "test_settings": {
+        "title": "Test Settings",
+        "options": {
+            "testSetting1": {
+                "key": "testSetting1",
+                "title": "Test Setting 1",
+                "description": "This is a test setting.",
+                "type": "selection",
+                "options": [
+                    {
+                        "key": "option1",
+                        "label": "Option1",
+                        "value": "Value1"
+                    },
+                    {
+                        "key": "option2",
+                        "label": "Option2",
+                        "value": "Value2"
+                    },
+                    {
+                        "key": "option3",
+                        "label": "Option3",
+                        "value": "Value3"
+                    }
+                ],
+                "selectedOption": "Value3"
+            },
+            "testSetting2": {
+                "key": "testSetting2",
+                "title": "Test Setting 2",
+                "description": "This is a test setting.",
+                "type": "switch",
+                "active": false
+            }
+        }
+    }
 }
