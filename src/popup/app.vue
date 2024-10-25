@@ -1,19 +1,11 @@
-<script setup lang="ts">
-
-import SettingsIcon from '~icons/mdi/cog'
-import ArrowBack from '~icons/mdi/arrow-left'
-const version = __VERSION__
-const displayName = __DISPLAY_NAME__
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Header />
-  <div v-if="$router.currentRoute.value.name !== 'popup'" class="btn ml-4 mt-4" @click="$router.back">
-    <ArrowBack />
+  <Header :is-content-script="false"></Header>
+  <div class="m-2">
+    <RouterView></RouterView>
   </div>
-  <RouterView></RouterView>
-  <Footer />
+  <Footer :is-content-script="false" />
 </template>
 
 <style scoped></style>

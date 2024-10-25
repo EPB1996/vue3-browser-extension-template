@@ -12,14 +12,18 @@ const version = __VERSION__
 
 <template>
     <footer style="width: 100%;" aria-label="Site Footer" class="bg-gray-50 ">
-        <div class="flex flex-row justify-between p-2">
-            <RouterLink v-if="!isContentScript" class="underline" to="/common/about">
-                About
-            </RouterLink>
+        <div class="flex flex-row justify-between p-2 ">
+            <div>
+                <RouterLink v-if="!isContentScript" class="underline" to="/common/about">
+                    About
+                </RouterLink>
+            </div>
             <p>Version: {{ version }}</p>
-            <RouterLink v-if="!isContentScript" class="justify-self-end" to="/options">
-                <SettingsIcon />
-            </RouterLink>
+            <div>
+                <RouterLink v-if="!isContentScript" class="justify-self-end" to="/options">
+                    <SettingsIcon />
+                </RouterLink>
+            </div>
         </div>
     </footer>
 </template>
