@@ -3,11 +3,11 @@
 </script>
 
 <template>
-  <div style=" height: 100%; ">
-    <Header :is-content-script="true" />
-    <RouterView style="" />
-    <Footer :is-content-script="true" style="bottom: 0px; position: fixed;" />
+  <Header :is-content-script="false" />
+  <div class="m-2">
+    <RouterView />
   </div>
+  <Footer :is-content-script="true" style="bottom: 0px; position: fixed;" />
 </template>
 
 <style scoped></style>

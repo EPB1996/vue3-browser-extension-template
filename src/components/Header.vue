@@ -2,10 +2,7 @@
 import { defineProps } from 'vue';
 
 const props = defineProps<{
-    isContentScript: {
-        type: boolean,
-        default: false
-    };
+    isContentScript: Boolean;
 }>();
 
 const displayName = __DISPLAY_NAME__
@@ -18,13 +15,14 @@ const displayName = __DISPLAY_NAME__
             <h1 class="text-2xl flex-4">
                 {{ displayName }}
             </h1>
-            <img v-if="!props.isContentScript" class="logo" src="@/assets/images/logo_with_name.png" alt="DevoTeam logo" />
+            <img v-if="!props.isContentScript" class="logo" src="@/assets/images/logo_with_name.png"
+                alt="DevoTeam logo" />
         </div>
     </header>
 </template>
 <style lang="scss" scoped>
 .logo {
-    width: 250px;
-    height: auto;
+    width: auto;
+    height: 50px;
 }
 </style>

@@ -3,10 +3,7 @@ import SettingsIcon from '~icons/mdi/cog'
 import { defineProps } from 'vue';
 
 const props = defineProps<{
-    isContentScript: {
-        type: boolean,
-        default: false
-    };
+    isContentScript: Boolean;
 }>();
 
 const version = __VERSION__
