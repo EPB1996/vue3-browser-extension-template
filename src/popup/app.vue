@@ -1,11 +1,30 @@
 <script setup lang="ts"></script>
 
 <template>
-  <Header :is-content-script="false"></Header>
-  <div class="m-2">
-    <RouterView></RouterView>
+  <div class="app-container">
+    <Header :is-content-script="false"></Header>
+    <div class="content">
+      <RouterView></RouterView>
+    </div>
+    <Footer :is-content-script="false" />
   </div>
-  <Footer :is-content-script="false" />
 </template>
 
-<style scoped></style>
+<style scoped>
+.app-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  margin-top: 65px;
+  /* Adjust based on header height */
+  margin-bottom: 50px;
+  /* Adjust based on footer height */
+  overflow-y: auto;
+  padding: 10px;
+  /* Optional padding */
+}
+</style>

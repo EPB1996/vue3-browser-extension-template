@@ -82,7 +82,7 @@ watch(currentUrl, (newValue) => {
         <p class="wrappable-url  text-rose-500">{{ currentUrl }}</p>
         <div v-if="urlComponents">
             <table>
-
+                <th></th>
                 <tr>
                     <td><strong>Protocol:</strong></td>
                     <td>{{ urlComponents.protocol }}</td>

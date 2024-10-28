@@ -12,11 +12,11 @@ const store = useOptionStore()
 
 const selectOption = (value: string) => {
     props.setting.selectedOption = value;
-    toggleOptions();
+    toggleOption();
 };
 
-const toggleOptions = () => {
-    store.toogleOptions(props.parentSettingKey!, props.settingKey!, props.setting)
+const toggleOption = () => {
+    store.toggleSetting(props.parentSettingKey!, props.settingKey!, props.setting)
 }
 </script>
 <template>
@@ -35,7 +35,7 @@ const toggleOptions = () => {
                 </p>
             </div>
             <div class="pt-1">
-                <select :disabled="disabled" v-model="setting.selectedOption" @change="toggleOptions">
+                <select :disabled="disabled" v-model="setting.selectedOption" @change="toggleOption">
                     <option v-for="selection in setting.options" :key="selection.key" :value="selection.value">{{
                         selection.label }}</option>
                 </select>
@@ -66,7 +66,7 @@ const toggleOptions = () => {
             </div>
             <div>
                 <input type="checkbox" class="hidden" :id="setting?.title" v-model="setting.active" :disabled="disabled"
-                    @change="toggleOptions" />
+                    @change="toggleOption" />
                 <label :for="setting?.title"
                     class="flex items-center w-10 h-6 rounded-full bg-gray-400 cursor-pointer relative">
                     <span

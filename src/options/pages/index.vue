@@ -6,7 +6,7 @@ const store = useOptionStore()
 const allSettings = computed(() => store.allSettings)
 
 onBeforeMount(() => {
-  store.reloadSavedOptions()
+  store.reloadSyncSettings()
 })
 
 </script>

@@ -4,13 +4,13 @@ import options from './options.json'
 export const useOptionStore = defineStore('optionStore', () => {
     const allSettings = ref<{ [key: string]: any }>(options)
 
-    const reloadSavedOptions = () => {
+    const reloadSyncSettings = () => {
         chrome.storage.sync.get(['devoteam-extension-settings'], (result) => {
             allSettings.value = result['devoteam-extension-settings']
         })
     }
 
-    const toogleOptions = (
+    const toggleSetting = (
         settingKey: string,
         optionKey: string,
         option: any
@@ -26,13 +26,13 @@ export const useOptionStore = defineStore('optionStore', () => {
         chrome.storage.sync.set({
             'devoteam-extension-settings': options,
         })
-        reloadSavedOptions()
+        reloadSyncSettings()
     }
 
     return {
         allSettings,
-        reloadSavedOptions,
-        toogleOptions,
+        reloadSyncSettings,
+        toggleSetting,
         resetSyncSettings,
     }
 })

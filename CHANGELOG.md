@@ -1,20 +1,15 @@
-# Update #Whatever Version Here
+# Version 0.0.1 - Minimal seed
 
-# Example update
+-   [x] Header & Footer adjusted
+-   [x] Option Page
+    -   [x] Generalized way to add options via json
+    -   [x] Content-script placement
+    -   [x] Content-script visibility
+-   [x] Routing added pages
 
-- Update README.md
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl ultricies nunc, vitae ultricies.
+**Dynamic urls bug in vite:**
+After building run
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl ultricies nunc, vitae ultricies.
-
-- [x] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl ultricies nunc, vitae ultricies.
-
-- [ ] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget ultricies aliquam, nunc nisl ultricies nunc, vitae ultricies.
-
-| Left columns | Right columns | Center Align |
-| ------------ | ------------: | :----------: |
-| left foo     |     right foo |  center foo  |
-| left bar     |     right bar |  center bar  |
-| left baz     |     right baz |  center baz  |
-
-### Yes
+```
+  node .\scripts\set-dynamic-url.cjs
+```

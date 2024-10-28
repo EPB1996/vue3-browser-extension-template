@@ -10,7 +10,7 @@ const displayName = __DISPLAY_NAME__
 </script>
 
 <template>
-    <header aria-label="Site Header" class="bg-gray-50">
+    <header aria-label="Site Header" class="bg-gray-50 fixed top-0 w-full z-50" style=" box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); height: 65px;">
         <div class="flex items-center justify-between p-2">
             <h1 class="text-2xl flex-4">
                 {{ displayName }}
