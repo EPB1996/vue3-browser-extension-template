@@ -46,17 +46,6 @@ export default antfu(
             'vue/multi-word-component-names': 'warn',
             '@eslint-community/eslint-comments/no-unlimited-disable': 'off',
             'ts/explicit-function-return-type': 'off',
-            'vue/html-indent': [
-                'error',
-                type,
-                {
-                    attribute: 1,
-                    baseIndent: 1,
-                    closeBracket: 0,
-                    alignAttributesVertically: true,
-                    ignores: [],
-                },
-            ],
         },
     }
 )
