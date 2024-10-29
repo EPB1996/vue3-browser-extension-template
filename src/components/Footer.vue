@@ -2,7 +2,7 @@
 import SettingsIcon from '~icons/mdi/cog'
 import { defineProps } from 'vue';
 
-const props = defineProps<{
+defineProps<{
     isContentScript: Boolean;
 }>();
 

@@ -32,7 +32,7 @@ onMounted(() => {
         })
     })
 
-    chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    chrome.tabs.onUpdated.addListener((_tabId, changeInfo) => {
         if (changeInfo.url) {
             urlInformation.value = new URL(changeInfo.url)
         }
@@ -82,33 +82,34 @@ watch(currentUrl, (newValue) => {
         <p class="wrappable-url  text-rose-500">{{ currentUrl }}</p>
         <div v-if="urlComponents">
             <table>
-                <th></th>
-                <tr>
-                    <td><strong>Protocol:</strong></td>
-                    <td>{{ urlComponents.protocol }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Host:</strong></td>
-                    <td>{{ urlComponents.host }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Pathname:</strong></td>
-                    <td>{{ urlComponents.pathname }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Search Params:</strong></td>
-                    <td>
-                        <ul>
-                            <li v-for="(value, key) in urlComponents.searchParams" :key="key">
-                                {{ key }}: {{ value }}
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-                <tr>
-                    <td><strong>Hash:</strong></td>
-                    <td>{{ urlComponents.hash }}</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td><strong>Protocol:</strong></td>
+                        <td>{{ urlComponents.protocol }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Host:</strong></td>
+                        <td>{{ urlComponents.host }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pathname:</strong></td>
+                        <td>{{ urlComponents.pathname }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Search Params:</strong></td>
+                        <td>
+                            <ul>
+                                <li v-for="(value, key) in urlComponents.searchParams" :key="key">
+                                    {{ key }}: {{ value }}
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hash:</strong></td>
+                        <td>{{ urlComponents.hash }}</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
@@ -124,7 +125,6 @@ watch(currentUrl, (newValue) => {
     border-radius: 5px;
     background-color: #f9f9f9;
     width: 100%;
-    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -139,6 +139,7 @@ watch(currentUrl, (newValue) => {
 
 .url-display table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
 }
 
@@ -147,6 +148,8 @@ watch(currentUrl, (newValue) => {
     border: 1px solid #ccc;
     padding: 8px;
     text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 .url-display th {

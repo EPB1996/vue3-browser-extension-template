@@ -35,7 +35,6 @@ chrome.storage.onChanged.addListener((changes) => {
             'content_script_settings'
         ]['options']['contentScriptYPosition']
 
-    console.log(contentScriptXPosition)
     setPosition(contentScriptXPosition, contentScriptYPosition)
 
     setVisibility(contentScriptVisible)
@@ -82,11 +81,6 @@ function setPosition(x: any, y: any) {
         crxIframe.style.bottom = `calc(${menuPadding} + ${menuSize} / 2)`
         crxIframe.style.top = 'auto'
     }
-
-    console.log(crxIframe.style.left)
-    console.log(crxIframe.style.right)
-    console.log(crxIframe.style.top)
-    console.log(crxIframe.style.bottom)
 }
 
 function setVisibility(contentScriptVisible: any) {
