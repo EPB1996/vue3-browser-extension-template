@@ -1,9 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  
-    <UrlDisplay />
-
+  <UrlDisplay />
 </template>
 
 <style scoped></style>
