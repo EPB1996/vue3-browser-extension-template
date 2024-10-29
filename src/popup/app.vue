@@ -1,21 +1,30 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header
-    aria-label="Site Header"
-    class="bg-gray-50"
-  >
-    Popup Header
-  </header>
-
-  <RouterView />
-
-  <footer
-    aria-label="Site Footer"
-    class="bg-gray-50"
-  >
-    Popup Footer
-  </footer>
+  <div class="app-container">
+    <Header :is-content-script="false"></Header>
+    <div class="content">
+      <RouterView></RouterView>
+    </div>
+    <Footer :is-content-script="false" />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app-container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  margin-top: 65px;
+  /* Adjust based on header height */
+  margin-bottom: 50px;
+  /* Adjust based on footer height */
+  overflow-y: auto;
+  padding: 10px;
+  /* Optional padding */
+}
+</style>
