@@ -10,11 +10,11 @@ declare module 'vue' {
     Changelog: typeof import('./../components/Changelog.vue')['default']
     Footer: typeof import('./../components/Footer.vue')['default']
     Header: typeof import('./../components/Header.vue')['default']
-    Install: typeof import('./../components/install.vue')['default']
+    Install: typeof import('../components/Install.vue')['default']
     OptionComponent: typeof import('./../components/OptionComponent.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Update: typeof import('./../components/update.vue')['default']
+    Update: typeof import('../components/Update.vue')['default']
     UrlDisplay: typeof import('./../components/UrlDisplay.vue')['default']
   }
 }
