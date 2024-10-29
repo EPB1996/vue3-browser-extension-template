@@ -10,27 +10,17 @@ const commitURL = `${gitURL}/commit/${gitCommit}`
 
 <template>
   <div style="grid-area: content">
-    <div
-      style="grid-area: version"
-      class="self-start"
-    >
+    <div style="grid-area: version" class="self-start">
       <p>
         Version: {{ version }}
-        <a
-          class="text-green-500"
-          :href="commitURL"
-          target="_blank"
-        >
+        <a class="text-green-500" :href="commitURL" target="_blank">
           (#{{ gitCommit }})
         </a>
       </p>
       <h1>Changelog</h1>
     </div>
     <!-- eslint-disable vue/no-v-html -->
-    <div
-      class="prose changelog"
-      v-html="marked(changelog)"
-    />
+    <div class="prose changelog" v-html="marked(changelog)" />
     <!--eslint-enable-->
   </div>
 </template>

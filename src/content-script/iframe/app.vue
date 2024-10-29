@@ -1,14 +1,12 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="app-container">
-    <Header :is-content-script="false"></Header>
+    <Header :is-content-script="false" />
     <div class="content">
-      <RouterView></RouterView>
+      <RouterView />
     </div>
-    <Footer :is-content-script="false" />
+    <Footer :is-content-script="true" />
   </div>
 </template>
 

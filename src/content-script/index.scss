@@ -1,14 +1,14 @@
 $shadow-floating-small:
-    0px 0px 0px 1px #d1d9e080,
-    0px 6px 12px -3px #25292e0a,
-    0px 6px 18px 0px #25292e1f;
+  0px 0px 0px 1px #d1d9e080,
+  0px 6px 12px -3px #25292e0a,
+  0px 6px 18px 0px #25292e1f;
 
 // Define variables for common properties
 $border-radius: 10px;
 
 :root {
-    --menu-padding: 20px;
-    --menu-size: 60px;
+  --menu-padding: 20px;
+  --menu-size: 50px;
 }
 
 $iframe-width: 480px;
@@ -20,57 +20,57 @@ $menu-hover-background: rgba(255, 69, 58, 1);
 $iframe-background: rgba(240, 238, 238, 1);
 
 .crx-iframe {
-    border: none;
-    z-index: 999;
-    position: fixed;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
-    border-radius: $border-radius;
-    box-shadow: $box-shadow;
-    background: $iframe-background;
-    transition: all $animation-duration ease-in-out;
+  border: none;
+  z-index: 999;
+  position: fixed;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  background: $iframe-background;
+  transition: all $animation-duration ease-in-out;
 }
 
 .show {
-    opacity: 1;
-    width: $iframe-width;
-    height: $iframe-height;
+  opacity: 1;
+  width: $iframe-width;
+  height: $iframe-height;
 }
 
 .menu {
-    border: 3px solid white;
-    border-radius: 50%;
-    z-index: 1000;
-    position: fixed;
-    background-size: cover;
-    background-position: center;
-    /*     bottom: $menu-padding;
+  border: 3px solid white;
+  border-radius: 50%;
+  z-index: 1000;
+  position: fixed;
+  background-size: cover;
+  background-position: center;
+  /*     bottom: $menu-padding;
     right: $menu-padding; */
-    width: var(--menu-size);
-    height: var(--menu-size);
-    box-shadow: $box-shadow;
+  width: var(--menu-size);
+  height: var(--menu-size);
+  box-shadow: $box-shadow;
 
-    transition:
-        border $animation-duration,
-        border-radius $animation-duration,
-        background-color 0.3s,
-        transform 0.3s,
-        box-shadow 0.3s;
+  transition:
+    border $animation-duration,
+    border-radius $animation-duration,
+    background-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .menu:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .grow {
-    transition: all 0.2s;
-    -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
 }
 
 .grow:hover {
-    opacity: 1;
-    width: auto;
-    height: auto;
+  opacity: 1;
+  width: auto;
+  height: auto;
 }
