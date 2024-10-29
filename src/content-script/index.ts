@@ -50,26 +50,26 @@ function setPosition(x: any, y: any) {
     menu.style.left = menuPadding
     menu.style.right = 'auto'
 
-    crxIframe.style.left = `calc(${menuPadding} + ${menuSize} / 2)`
+    crxIframe.style.left = `calc(${menuPadding} + ${menuSize} / 1.5)`
     crxIframe.style.right = 'auto'
   } else if (x.selectedOption === 'right') {
     menu.style.right = menuPadding
     menu.style.left = 'auto'
 
-    crxIframe.style.right = `calc(${menuPadding} + ${menuSize} / 2)`
+    crxIframe.style.right = `calc(${menuPadding} + ${menuSize} / 1.5)`
     crxIframe.style.left = 'auto'
   }
   if (y.selectedOption === 'top') {
     menu.style.top = menuPadding
     menu.style.bottom = 'auto'
 
-    crxIframe.style.top = `calc(${menuPadding} + ${menuSize} / 2)`
+    crxIframe.style.top = `calc(${menuPadding} + ${menuSize} / 1.5)`
     crxIframe.style.bottom = 'auto'
   } else if (y.selectedOption === 'bottom') {
     menu.style.bottom = menuPadding
     menu.style.top = 'auto'
 
-    crxIframe.style.bottom = `calc(${menuPadding} + ${menuSize} / 2)`
+    crxIframe.style.bottom = `calc(${menuPadding} + ${menuSize} / 1.5)`
     crxIframe.style.top = 'auto'
   }
 }
