@@ -1,9 +1,9 @@
 {
   "quoteProps": "as-needed",
   "semi": false,
-  "singleAttributePerLine": true,
+  "singleAttributePerLine": false,
   "singleQuote": true,
-  "tabWidth": 2,
+  "tabWidth": 4,
   "trailingComma": "es5",
   "useTabs": false,
   "htmlWhitespaceSensitivity": "ignore"

@@ -5,10 +5,7 @@ const version = __VERSION__
 
 <template>
   <div>
-    <div
-      class="flex flex-col gap-y-4"
-      style="grid-area: title"
-    >
+    <div class="flex flex-col gap-y-4" style="grid-area: title">
       <h1 class="text-4xl font-bold text-center">
         🎉 Updated! 🎉
       </h1>
