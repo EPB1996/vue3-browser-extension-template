@@ -6,6 +6,13 @@ export const useOptionStore = defineStore('optionStore', () => {
 
   const reloadSyncSettings = () => {
     chrome.storage.sync.get(['devoteam-extension-settings'], (result) => {
+      if (!result['devoteam-extension-settings']) {
+        chrome.storage.sync.set({
+          'devoteam-extension-settings': options,
+        })
+        allSettings.value = options
+        return
+      }
       allSettings.value = result['devoteam-extension-settings']
     })
   }
