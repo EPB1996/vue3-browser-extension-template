@@ -94,7 +94,7 @@ function createContentScript() {
     'text/html'
   ).body.firstElementChild as HTMLDivElement
 
-  button.style.backgroundImage = `url(${chrome.runtime.getURL('src/assets/images/logo.jpg')})`
+  button.style.backgroundImage = `url(${chrome.runtime.getURL('/icons/icon128.png')})`
 
   const iframe = new DOMParser().parseFromString(
     `<iframe class="crx-iframe" src="${src}"></iframe> 

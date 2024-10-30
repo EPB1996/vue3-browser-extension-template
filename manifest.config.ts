@@ -26,6 +26,13 @@ export default {
     service_worker: 'src/background/index.ts',
     type: 'module',
   },
+  icons: {
+    '16': 'icons/icon16.png',
+    '32': 'icons/icon32.png',
+    '48': 'icons/icon48.png',
+    '128': 'icons/icon128.png',
+  },
+
   content_scripts: [
     {
       all_frames: false,
@@ -57,10 +64,4 @@ export default {
       matches: ['*://*/*'],
     },
   ],
-  icons: {
-    16: 'src/assets/images/logo.jpg',
-    24: 'src/assets/images/logo.jpg',
-    32: 'src/assets/images/logo.jpg',
-    128: 'src/assets/images/logo.jpg',
-  },
 } as ManifestV3Export
